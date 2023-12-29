@@ -1,4 +1,4 @@
-import CardsData from '@/components/Data/card'
+import CardsData from '@/components/Data/Card'
 import Link from 'next/link'
 import React from 'react'
 
