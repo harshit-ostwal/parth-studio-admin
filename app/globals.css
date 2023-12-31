@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 
 :root {
@@ -15,24 +18,16 @@
 }
 
 @font-face {
-    font-family: 'Urbanist';
-    src: url('../fonts/Urbanist.ttf') format('truetype');
+    font-family: 'VisbyRound';
+    src: url('../fonts/VisbyRound.otf') format('opentype');
 }
 
 @font-face {
-    font-family: 'Urbanist_Italic';
-    src: url('../fonts/Urbanist-Italic.ttf') format('truetype');
+    font-family: 'VisbyRound-Medium';
+    src: url('../fonts/VisbyRound-Medium.otf') format('opentype');
 }
 
 @font-face {
-    font-family: 'Gilroy';
-    src: url('../fonts/Gilroy.ttf') format('truetype');
-}
-@font-face {
-    font-family: 'Gilroy Bold';
-    src: url('../fonts/Gilroy-Bold.ttf') format('truetype');
-}
-@font-face {
-    font-family: 'Gilroy Semibold';
-    src: url('../fonts/Gilroy-SemiBold.ttf') format('truetype');
+    font-family: 'VisbyRound-Bold';
+    src: url('../fonts/VisbyRound-Bold.otf') format('opentype');
 }
