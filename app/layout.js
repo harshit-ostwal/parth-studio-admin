@@ -11,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="h-full w-full font-VisbyRound">
+      <body className="h-full lg:h-screen w-full font-VisbyRound flex flex-col">
         <NextTopLoader
           color={"red"}
           zIndex={1600}
@@ -23,7 +23,9 @@ export default function RootLayout({ children }) {
           showSpinner={false}
           initialPosition={0.1} />
         <Navbar />
-        {children}
+        <div className="flex-1">
+          {children}
+        </div>
         <Footer />
       </body>
     </html>
