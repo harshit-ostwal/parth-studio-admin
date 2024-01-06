@@ -1,16 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 
 :root {
     --primary-color: #fde68a;
+    --primary-text: #222222;
     --secondary-color: #222222;
+    --secondary-text: #f4f4f5;
+    --destructive-color: #f87171;
+    --destructive-text: #222222;
+    --accent-color: #fae8ff;
+    --accent-text: #222222;
     --card-color: #e0e7ff;
-    --text-color: #222222;
 }
 
 ::-webkit-scrollbar {

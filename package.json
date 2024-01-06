@@ -9,11 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "hamburger-react": "^2.5.0",
     "lucide-react": "^0.303.0",
     "next": "14.0.4",
+    "next-auth": "^4.24.5",
     "nextjs-toploader": "^1.6.4",
     "react": "^18",
     "react-dom": "^18",

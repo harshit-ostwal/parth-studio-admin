@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ["class"],
   content: [
     './pages/**/*.{js,jsx}',
     './components/**/*.{js,jsx}',
@@ -11,10 +10,23 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: 'var(--primary-color)',
-        secondary: 'var(--secondary-color)',
+        primary: {
+          DEFAULT: 'var(--primary-color)',
+          text: 'var(--primary-text)'
+        },
+        secondary: {
+          DEFAULT: 'var(--secondary-color)',
+          text: 'var(--secondary-text)'
+        },
+        destructive: {
+          DEFAULT: 'var(--destructive-color)',
+          text: 'var(--destructive-text)'
+        },
+        accent: {
+          DEFAULT: 'var(--accent-color)',
+          text: 'var(--accent-text)'
+        },
         card: 'var(--card-color)',
-        text: 'var(--text-color)'
       },
       fontFamily: {
         VisbyRound: ['VisbyRound', 'sans-serif'],

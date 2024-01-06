@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar'
 import './globals.css'
 import Footer from '@/components/Footer'
 import NextTopLoader from 'nextjs-toploader'
+import Display from './Display'
 
 export const metadata = {
   title: 'Parth Studio',
@@ -11,22 +12,18 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="h-full lg:h-screen w-full font-VisbyRound flex flex-col">
+      <body>
         <NextTopLoader
           color={"red"}
           zIndex={1600}
-          speed={500}
+          speed={1000}
           height={4}
-          crawlSpeed={500}
+          crawlSpeed={1000}
           crawl={true}
           easing="ease"
           showSpinner={false}
           initialPosition={0.1} />
-        <Navbar />
-        <div className="flex-1">
-          {children}
-        </div>
-        <Footer />
+        <Display children={children} />
       </body>
     </html>
   )
