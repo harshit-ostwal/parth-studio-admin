@@ -3,7 +3,7 @@ import React from 'react';
 import Input from './Input';
 import Button from './Button';
 
-export default function SignIn() {
+export default function SignUp() {
     return (
         <>
             <div className="fixed top-0 left-0 w-full h-full overflow-y-auto text-text bg-secondary z-[100] grid xl:grid-cols-2 p-5 lg:p-0">
@@ -29,9 +29,10 @@ export default function SignIn() {
                             loading='eager'
                         />
                         <h1 className='text-xl sm:text-2xl font-VisbyRoundBold mb-10 mt-3'>Welcome To Parth Studio</h1>
+                        <Input type={"text"} placeholder={"Name"} />
                         <Input type={"email"} placeholder={"Email"} />
                         <Input type={"password"} placeholder={"Password"} />
-                        <Button size="xl" className="w-[80%] mt-5" variant={"secondary"}>Sign In</Button>
+                        <Button size="xl" className="w-[80%] mt-5" variant={"secondary"}>Sign Up</Button>
                     </div>
                 </div>
             </div>

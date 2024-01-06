@@ -6,7 +6,7 @@ const CardsData = [
         id: 1,
         icon: <User2 size={48} color="black" />,
         title: 'User Profile',
-        href: '/Settings/User/Profile'
+        href: '/Settings/Profile'
     },
     {
         id: 2,
