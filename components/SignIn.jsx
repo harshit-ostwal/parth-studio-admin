@@ -9,10 +9,10 @@ export default function SignIn() {
             <div className="fixed top-0 left-0 w-full h-full text-text bg-secondary z-[100] grid lg:grid-cols-2 p-5 lg:p-0">
                 <div className="w-full h-full hidden lg:flex">
                     <Image
-                        src="/Images/ReachUs.jpg"
+                        src={"https://res.cloudinary.com/davazn01h/image/upload/v1700740297/Parth%20Studio/Admin/ReachUs.jpg"}
                         width={5588}
                         height={3725}
-                        loading="lazy"
+                        loading="eager"
                         quality={100}
                         alt="Authentication"
                         className="h-full object-cover"
@@ -26,7 +26,7 @@ export default function SignIn() {
                             quality={100}
                             height={88}
                             alt='Parth Studio'
-                            loading='lazy'
+                            loading='eager'
                         />
                         <h1 className='text-xl sm:text-2xl font-VisbyRoundBold mb-10 mt-3'>Welcome To Parth Studio</h1>
                         <Input type={"email"} placeholder={"Email"} />
