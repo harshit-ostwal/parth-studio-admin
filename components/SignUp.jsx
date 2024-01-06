@@ -1,9 +1,28 @@
+"use client"
 import Image from 'next/image';
-import React from 'react';
+import React, { useState } from 'react';
 import Input from './Input';
 import Button from './Button';
+import { useRouter } from 'next/navigation';
+import axios from 'axios';
+import { Loader2Icon } from 'lucide-react';
 
 export default function SignUp() {
+
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const [isLoading, setIsLoading] = useState(false);
+
+    const router = useRouter();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsLoading(true);
+
+    }
+
     return (
         <>
             <div className="fixed top-0 left-0 w-full h-full overflow-y-auto text-text bg-secondary z-[100] grid xl:grid-cols-2 p-5 lg:p-0">
@@ -19,7 +38,7 @@ export default function SignUp() {
                     />
                 </div>
                 <div className="flex items-center justify-center w-full h-full">
-                    <div className="max-w-md h-[90%] landscape:h-full landscape:pb-10 landscape:pt-10 lg:!h-[70%] rounded-[20px] shadow-2xl shadow-zinc-50 bg-white w-full flex flex-col gap-2 items-center justify-center">
+                    <form onSubmit={handleSubmit} className="max-w-md h-[90%] landscape:h-full landscape:pb-10 landscape:pt-10 lg:!h-[70%] rounded-[20px] shadow-2xl shadow-zinc-50 bg-white w-full flex flex-col gap-2 items-center justify-center">
                         <Image
                             src={"/Logo/psblack.png"}
                             width={80}
@@ -29,11 +48,18 @@ export default function SignUp() {
                             loading='eager'
                         />
                         <h1 className='text-xl sm:text-2xl font-VisbyRoundBold mb-10 mt-3'>Welcome To Parth Studio</h1>
-                        <Input type={"text"} placeholder={"Name"} />
-                        <Input type={"email"} placeholder={"Email"} />
-                        <Input type={"password"} placeholder={"Password"} />
-                        <Button size="xl" className="w-[80%] mt-5" variant={"secondary"}>Sign Up</Button>
-                    </div>
+                        <Input type={"text"} placeholder={"Name"} value={setName} />
+                        <Input type={"email"} placeholder={"Email"} value={setEmail} />
+                        <Input type={"password"} placeholder={"Password"} value={setPassword} />
+                        <Button size="xl" className="w-[80%] mt-5" variant={"secondary"}>
+                            {isLoading ?
+                                <>
+                                    <Loader2Icon size={24} className="animate-spin" />
+                                </> : <>
+                                    Sign Up
+                                </>}
+                        </Button>
+                    </form>
                 </div>
             </div>
         </>
