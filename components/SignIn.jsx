@@ -19,12 +19,19 @@ export default function SignIn() {
                     />
                 </div>
                 <div className="flex items-center justify-center w-full h-full">
-                    <div className="max-w-md h-[80%] lg:h-[70%] rounded-[20px] bg-white w-full flex flex-col gap-2 items-center justify-center">
-                        <Image src={"/Logo/psblack.png"} width={80} quality={100} height={88} alt='Parth Studio' />
-                        <h1 className='text-xl sm:text-2xl font-VisbyRoundBold md:text-3xl mb-10 mt-3'>Welcome To Parth Studio</h1>
+                    <div className="max-w-md h-[90%] lg:h-[70%] rounded-[20px] shadow-2xl shadow-zinc-50 bg-white w-full flex flex-col gap-2 items-center justify-center">
+                        <Image
+                            src={"/Logo/psblack.png"}
+                            width={80}
+                            quality={100}
+                            height={88}
+                            alt='Parth Studio'
+                            loading='lazy'
+                        />
+                        <h1 className='text-xl sm:text-2xl font-VisbyRoundBold mb-10 mt-3'>Welcome To Parth Studio</h1>
                         <Input type={"email"} placeholder={"Email"} />
                         <Input type={"password"} placeholder={"Password"} />
-                        <Button size="xl" className="w-[80%]" variant={"secondary"}>Submit</Button>
+                        <Button size="xl" className="w-[80%] mt-5" variant={"secondary"}>Sign In</Button>
                     </div>
                 </div>
             </div>
