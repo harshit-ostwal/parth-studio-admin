@@ -1,5 +1,5 @@
 "use client"
-import { GanttChart, Home, LogOut, Search, Settings, User2, UsersRound, X } from 'lucide-react'
+import { BellDot, BellRing, GanttChart, Home, LogOut, Search, Settings, User2, UsersRound, X } from 'lucide-react'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import Sidebar from './Sidebar';
@@ -28,12 +28,22 @@ export default function Header() {
                     </form>
                 </div>
                 <div className="flex items-center gap-1">
-                    <Link href={"/Settings"} className="p-3 transition-colors duration-300 rounded-full hover:bg-gray-50 text-primary-text"><Settings size={18} /></Link>
+                    <ul>
+                        <li className="relative p-3 transition-colors duration-300 rounded-full hover:bg-gray-50 text-primary-text group"><BellDot size={18} />
+                            <ul className="absolute right-0 flex-col hidden gap-2 p-5 rounded-md group-hover:flex w-80 bg-background-text top-10 text-secondary-text">
+                                <li className="p-2 rounded-md cursor-pointer hover:bg-primary hover:text-primary-text"><p className="flex items-center justify-center gap-5 text-sm"><span><BellRing size={18} color='orange' /></span> Lorem, asdmna sdnm asndipsum dolor sit amet consectetur</p></li>
+                                <li className="p-2 rounded-md cursor-pointer hover:bg-primary hover:text-primary-text"><p className="flex items-center justify-center gap-5 text-sm"><span><BellRing size={18} color='orange' /></span> Lorem, asdmna sdnm asndipsum dolor sit amet consectetur</p></li>
+                                <li className="p-2 rounded-md cursor-pointer hover:bg-primary hover:text-primary-text"><p className="flex items-center justify-center gap-5 text-sm"><span><BellRing size={18} color='orange' /></span> Lorem, asdmna sdnm asndipsum dolor sit amet consectetur</p></li>
+                                <li className="p-2 rounded-md cursor-pointer hover:bg-primary hover:text-primary-text"><p className="flex items-center justify-center gap-5 text-sm"><span><BellRing size={18} color='orange' /></span> Lorem, asdmna sdnm asndipsum dolor sit amet consectetur</p></li>
+                            </ul>
+                        </li>
+                    </ul>
                     <ul>
                         <li className="relative p-3 transition-colors duration-300 rounded-full hover:bg-gray-50 text-primary-text group"><UsersRound size={18} />
                             <ul className="absolute right-0 flex-col hidden gap-2 p-5 rounded-md group-hover:flex w-60 bg-background-text top-10 text-secondary-text">
                                 <li><LinkButton target={"_blank"} href={"https://parth-studio.vercel.app"} variant={"secondary"} ><Home size={18} />Home</LinkButton></li>
                                 <li><LinkButton href={"/Profile"} variant={"secondary"} ><User2 size={18} />Profile</LinkButton></li>
+                                <li><LinkButton href={"/Settings"} variant={"secondary"} ><Settings size={18} />Settings</LinkButton></li>
                                 <Separator />
                                 <li><LinkButton href={"/Logout"} variant={"secondary"} ><LogOut size={18} />Logout</LinkButton></li>
                             </ul>
@@ -51,12 +61,22 @@ export default function Header() {
                     <img src="/Logo/psblack.png" alt="Parth Studio" width={80} />
                 </Link>
                 <div className="flex items-end justify-end">
-                    <Link href={"/Settings"} className="p-3 transition-colors duration-300 rounded-full hover:bg-gray-50 text-primary-text"><Settings size={18} /></Link>
+                    <ul>
+                        <li className="relative p-3 transition-colors duration-300 rounded-full hover:bg-gray-50 text-primary-text group"><BellDot size={18} />
+                            <ul className="absolute right-0 flex-col hidden gap-2 p-5 rounded-md group-hover:flex w-80 bg-background-text top-11 text-secondary-text">
+                                <li className="p-2 rounded-md cursor-pointer hover:bg-primary hover:text-primary-text"><p className="flex items-center justify-center gap-5 text-sm"><span><BellRing size={18} color='orange' /></span> Lorem, asdmna sdnm asndipsum dolor sit amet consectetur</p></li>
+                                <li className="p-2 rounded-md cursor-pointer hover:bg-primary hover:text-primary-text"><p className="flex items-center justify-center gap-5 text-sm"><span><BellRing size={18} color='orange' /></span> Lorem, asdmna sdnm asndipsum dolor sit amet consectetur</p></li>
+                                <li className="p-2 rounded-md cursor-pointer hover:bg-primary hover:text-primary-text"><p className="flex items-center justify-center gap-5 text-sm"><span><BellRing size={18} color='orange' /></span> Lorem, asdmna sdnm asndipsum dolor sit amet consectetur</p></li>
+                                <li className="p-2 rounded-md cursor-pointer hover:bg-primary hover:text-primary-text"><p className="flex items-center justify-center gap-5 text-sm"><span><BellRing size={18} color='orange' /></span> Lorem, asdmna sdnm asndipsum dolor sit amet consectetur</p></li>
+                            </ul>
+                        </li>
+                    </ul>
                     <ul>
                         <li className="relative p-3 transition-colors duration-300 rounded-full hover:bg-gray-50 text-primary-text group"><UsersRound size={18} />
-                            <ul className="absolute right-0 flex-col hidden gap-2 p-5 rounded-md group-hover:flex w-60 bg-background-text top-11 text-secondary-text">
+                            <ul className="absolute right-0 flex-col hidden gap-2 p-5 rounded-md group-hover:flex w-60 bg-background-text top-10 text-secondary-text">
                                 <li><LinkButton target={"_blank"} href={"https://parth-studio.vercel.app"} variant={"secondary"} ><Home size={18} />Home</LinkButton></li>
                                 <li><LinkButton href={"/Profile"} variant={"secondary"} ><User2 size={18} />Profile</LinkButton></li>
+                                <li><LinkButton href={"/Settings"} variant={"secondary"} ><Settings size={18} />Settings</LinkButton></li>
                                 <Separator />
                                 <li><LinkButton href={"/Logout"} variant={"secondary"} ><LogOut size={18} />Logout</LinkButton></li>
                             </ul>
