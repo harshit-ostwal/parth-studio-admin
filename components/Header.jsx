@@ -1,5 +1,5 @@
 "use client"
-import { BellDot, BellRing, GanttChart, Home, LogOut, Search, Settings, User2, UsersRound, X } from 'lucide-react'
+import { AlertTriangle, BellDot, BellRing, GanttChart, Home, LogOut, Search, Settings, User2, UsersRound, X } from 'lucide-react'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import Sidebar from './Sidebar';
@@ -32,9 +32,9 @@ export default function Header() {
                         <li className="relative p-3 transition-colors duration-300 rounded-full hover:bg-gray-50 text-primary-text group"><BellDot size={18} />
                             <ul className="absolute right-0 flex-col hidden gap-2 p-5 rounded-md group-hover:flex w-80 bg-background-text top-10 text-secondary-text">
                                 <li className="p-2 rounded-md cursor-pointer hover:bg-primary hover:text-primary-text"><p className="flex items-center justify-center gap-5 text-sm"><span><BellRing size={18} color='orange' /></span> Lorem, asdmna sdnm asndipsum dolor sit amet consectetur</p></li>
+                                <li className="p-2 rounded-md cursor-pointer hover:bg-primary hover:text-primary-text"><p className="flex items-center justify-center gap-5 text-sm"><span><AlertTriangle size={18} color='orange' /></span> Lorem, asdmna sdnm asndipsum dolor sit amet consectetur</p></li>
                                 <li className="p-2 rounded-md cursor-pointer hover:bg-primary hover:text-primary-text"><p className="flex items-center justify-center gap-5 text-sm"><span><BellRing size={18} color='orange' /></span> Lorem, asdmna sdnm asndipsum dolor sit amet consectetur</p></li>
-                                <li className="p-2 rounded-md cursor-pointer hover:bg-primary hover:text-primary-text"><p className="flex items-center justify-center gap-5 text-sm"><span><BellRing size={18} color='orange' /></span> Lorem, asdmna sdnm asndipsum dolor sit amet consectetur</p></li>
-                                <li className="p-2 rounded-md cursor-pointer hover:bg-primary hover:text-primary-text"><p className="flex items-center justify-center gap-5 text-sm"><span><BellRing size={18} color='orange' /></span> Lorem, asdmna sdnm asndipsum dolor sit amet consectetur</p></li>
+                                <li className="p-2 rounded-md cursor-pointer hover:bg-primary hover:text-primary-text"><p className="flex items-center justify-center gap-5 text-sm"><span><AlertTriangle size={18} color='orange' /></span> Lorem, asdmna sdnm asndipsum dolor sit amet consectetur</p></li>
                             </ul>
                         </li>
                     </ul>
@@ -65,9 +65,9 @@ export default function Header() {
                         <li className="relative p-3 transition-colors duration-300 rounded-full hover:bg-gray-50 text-primary-text group"><BellDot size={18} />
                             <ul className="absolute right-0 flex-col hidden gap-2 p-5 rounded-md group-hover:flex w-80 bg-background-text top-11 text-secondary-text">
                                 <li className="p-2 rounded-md cursor-pointer hover:bg-primary hover:text-primary-text"><p className="flex items-center justify-center gap-5 text-sm"><span><BellRing size={18} color='orange' /></span> Lorem, asdmna sdnm asndipsum dolor sit amet consectetur</p></li>
+                                <li className="p-2 rounded-md cursor-pointer hover:bg-primary hover:text-primary-text"><p className="flex items-center justify-center gap-5 text-sm"><span><AlertTriangle size={18} color='orange' /></span> Lorem, asdmna sdnm asndipsum dolor sit amet consectetur</p></li>
                                 <li className="p-2 rounded-md cursor-pointer hover:bg-primary hover:text-primary-text"><p className="flex items-center justify-center gap-5 text-sm"><span><BellRing size={18} color='orange' /></span> Lorem, asdmna sdnm asndipsum dolor sit amet consectetur</p></li>
-                                <li className="p-2 rounded-md cursor-pointer hover:bg-primary hover:text-primary-text"><p className="flex items-center justify-center gap-5 text-sm"><span><BellRing size={18} color='orange' /></span> Lorem, asdmna sdnm asndipsum dolor sit amet consectetur</p></li>
-                                <li className="p-2 rounded-md cursor-pointer hover:bg-primary hover:text-primary-text"><p className="flex items-center justify-center gap-5 text-sm"><span><BellRing size={18} color='orange' /></span> Lorem, asdmna sdnm asndipsum dolor sit amet consectetur</p></li>
+                                <li className="p-2 rounded-md cursor-pointer hover:bg-primary hover:text-primary-text"><p className="flex items-center justify-center gap-5 text-sm"><span><AlertTriangle size={18} color='orange' /></span> Lorem, asdmna sdnm asndipsum dolor sit amet consectetur</p></li>
                             </ul>
                         </li>
                     </ul>
