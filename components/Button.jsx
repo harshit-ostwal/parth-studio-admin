@@ -8,6 +8,8 @@ const buttonVariants = cva(
         variants: {
             variant: {
                 default: "bg-primary text-primary-text hover:bg-secondary text-sm focus:bg-secondary-text focus:text-secondary hover:text-secondary-text",
+                primary: "bg-secondary text-primary hover:bg-primary text-sm focus:bg-secondary focus:text-secondary-text hover:text-primary-text hover:border border-secondary",
+                secondary: "bg-secondary text-primary hover:bg-primary text-sm focus:bg-primary-text focus:text-secondary hover:text-primary-text",
             },
             size: {
                 default: "rounded-md px-4 py-3",

@@ -1,4 +1,5 @@
 import Display from "./Display";
+import { NextAuthProvider } from "./Provider";
 import "./globals.css";
 import NextTopLoader from "nextjs-toploader";
 
@@ -21,7 +22,9 @@ export default function RootLayout({ children }) {
           easing="ease"
           showSpinner={false}
           initialPosition={0.1} />
-        <Display children={children} />
+        <NextAuthProvider>
+          <Display children={children} />
+        </NextAuthProvider>
       </body>
     </html>
   );
