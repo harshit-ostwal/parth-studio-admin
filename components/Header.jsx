@@ -1,10 +1,12 @@
 "use client"
-import { GanttChart, Languages, LogOut, Search, Settings, UsersRound, X } from 'lucide-react'
+import { GanttChart, Home, LogOut, Search, Settings, User2, UsersRound, X } from 'lucide-react'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import Sidebar from './Sidebar';
 import { SideBarData } from './Data/Sidebar';
 import LinkButton from './LinkButton';
+import { Separator } from "@/components/ui/separator"
+
 
 export default function Header() {
 
@@ -27,7 +29,16 @@ export default function Header() {
                 </div>
                 <div className="flex items-center gap-1">
                     <Link href={"/Settings"} className="p-3 transition-colors duration-300 rounded-full hover:bg-gray-50 text-primary-text"><Settings size={18} /></Link>
-                    <Link href={"/Profile"} className="p-3 transition-colors duration-300 rounded-full hover:bg-gray-50 text-primary-text"><UsersRound size={18} /></Link>
+                    <ul>
+                        <li className="relative p-3 transition-colors duration-300 rounded-full hover:bg-gray-50 text-primary-text group"><UsersRound size={18} />
+                            <ul className="absolute right-0 flex-col hidden gap-2 p-5 rounded-md group-hover:flex w-60 bg-background-text top-10 text-secondary-text">
+                                <li><LinkButton target={"_blank"} href={"https://parth-studio.vercel.app"} variant={"secondary"} ><Home size={18} />Home</LinkButton></li>
+                                <li><LinkButton href={"/Profile"} variant={"secondary"} ><User2 size={18} />Profile</LinkButton></li>
+                                <Separator />
+                                <li><LinkButton href={"/Logout"} variant={"secondary"} ><LogOut size={18} />Logout</LinkButton></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
@@ -41,29 +52,32 @@ export default function Header() {
                 </Link>
                 <div className="flex items-end justify-end">
                     <Link href={"/Settings"} className="p-3 transition-colors duration-300 rounded-full hover:bg-gray-50 text-primary-text"><Settings size={18} /></Link>
-                    <Link href={"/Profile"} className="p-3 transition-colors duration-300 rounded-full hover:bg-gray-50 text-primary-text"><UsersRound size={18} /></Link>
+                    <ul>
+                        <li className="relative p-3 transition-colors duration-300 rounded-full hover:bg-gray-50 text-primary-text group"><UsersRound size={18} />
+                            <ul className="absolute right-0 flex-col hidden gap-2 p-5 rounded-md group-hover:flex w-60 bg-background-text top-11 text-secondary-text">
+                                <li><LinkButton target={"_blank"} href={"https://parth-studio.vercel.app"} variant={"secondary"} ><Home size={18} />Home</LinkButton></li>
+                                <li><LinkButton href={"/Profile"} variant={"secondary"} ><User2 size={18} />Profile</LinkButton></li>
+                                <Separator />
+                                <li><LinkButton href={"/Logout"} variant={"secondary"} ><LogOut size={18} />Logout</LinkButton></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
-            <div className={`fixed text-white lg:hidden h-full bg-white top-0 flex justify-between w-full overflow-y-auto gap-10 flex-col transition-all duration-1000 ease-in-out p-5 ${!menu ? "left-[-100%]" : "left-0"}`}>
-                <div className="flex flex-col gap-10">
-                    <div className="flex items-center justify-between">
-                        <img onClick={handleMenu} src="/Logo/psblack.png" alt="Parth Studio" width={80} />
-                        <button onClick={handleMenu} className="p-3 transition-colors duration-300 rounded-full hover:bg-gray-50 text-primary-text"><X size={18} /></button>
+            <div className={`fixed text-white lg:hidden h-full bg-white top-0 flex w-full overflow-y-auto gap-10 flex-col transition-all duration-1000 ease-in-out p-5 ${!menu ? "left-[-100%]" : "left-0"}`}>
+                <div className="flex items-center justify-between">
+                    <img onClick={handleMenu} src="/Logo/psblack.png" alt="Parth Studio" width={80} />
+                    <button onClick={handleMenu} className="p-3 transition-colors duration-300 rounded-full hover:bg-gray-50 text-primary-text"><X size={18} /></button>
+                </div>
+                {SideBarData.map((data, index) => (
+                    <div key={index} className="flex flex-col w-full gap-2">
+                        <h1 className="text-xs font-bold text-gray-400">{data.Title}</h1>
+                        {data.Menu.map((item, index) => (
+                            <LinkButton href={item.href} key={index}>{item.Icon}{item.Title}</LinkButton>
+                        ))}
                     </div>
-                    {SideBarData.map((data, index) => (
-                        <div key={index} className="flex flex-col w-full gap-2">
-                            <h1 className="text-xs font-bold text-gray-400">{data.Title}</h1>
-                            {data.Menu.map((item, index) => (
-                                <LinkButton href={item.href} key={index}>{item.Icon}{item.Title}</LinkButton>
-                            ))}
-                        </div>
-                    ))}
-                </div>
-                <div className="flex flex-col w-full gap-2">
-                    <h1 className="text-xs font-bold text-gray-400">SETTINGS</h1>
-                    <LinkButton href={"/Settings"} ><LogOut /> Logout</LinkButton>
-                </div>
+                ))}
             </div>
 
         </>

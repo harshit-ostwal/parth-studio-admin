@@ -9,6 +9,7 @@ const linkVariants = cva(
         variants: {
             variant: {
                 default: "bg-primary text-primary-text hover:bg-secondary text-sm focus:bg-secondary-text focus:text-secondary hover:text-secondary-text",
+                secondary: "bg-secondary text-primary hover:bg-primary text-sm focus:bg-primary-text focus:text-secondary hover:text-primary-text",
             },
             size: {
                 default: "rounded-md px-4 py-3",
@@ -21,9 +22,9 @@ const linkVariants = cva(
     }
 );
 
-const LinkButton = ({ href, size, onClick, disabled, variant, className, children, ...props }) => {
+const LinkButton = ({ target, href, size, onClick, disabled, variant, className, children, ...props }) => {
     return (
-        <Link href={href} onClick={onClick} disabled={disabled} className={cn(linkVariants({ variant, size, className }))} {...props}>
+        <Link target={target} href={href} onClick={onClick} disabled={disabled} className={cn(linkVariants({ variant, size, className }))} {...props}>
             {children}
         </Link>
     );
