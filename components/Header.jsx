@@ -1,5 +1,5 @@
 "use client"
-import { GanttChart, Languages, Search, Settings, UsersRound, X } from 'lucide-react'
+import { GanttChart, Languages, LogOut, Search, Settings, UsersRound, X } from 'lucide-react'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import Sidebar from './Sidebar';
@@ -45,19 +45,25 @@ export default function Header() {
                 </div>
             </div>
 
-            <div className={`fixed text-white lg:hidden h-full bg-white top-0 flex w-full overflow-y-auto gap-10 flex-col transition-all duration-1000 ease-in-out p-5 ${!menu ? "left-[-100%]" : "left-0"}`}>
-                <div className="flex items-center justify-between">
-                    <img onClick={handleMenu} src="/Logo/psblack.png" alt="Parth Studio" width={80} />
-                    <button onClick={handleMenu} className="p-3 transition-colors duration-300 rounded-full hover:bg-gray-50 text-primary-text"><X size={18} /></button>
-                </div>
-                {SideBarData.map((data, index) => (
-                    <div key={index} className="flex flex-col w-full gap-2">
-                        <h1 className="text-xs font-bold text-gray-400">{data.Title}</h1>
-                        {data.Menu.map((item, index) => (
-                            <LinkButton href={item.href} key={index}>{item.Icon}{item.Title}</LinkButton>
-                        ))}
+            <div className={`fixed text-white lg:hidden h-full bg-white top-0 flex justify-between w-full overflow-y-auto gap-10 flex-col transition-all duration-1000 ease-in-out p-5 ${!menu ? "left-[-100%]" : "left-0"}`}>
+                <div className="flex flex-col gap-10">
+                    <div className="flex items-center justify-between">
+                        <img onClick={handleMenu} src="/Logo/psblack.png" alt="Parth Studio" width={80} />
+                        <button onClick={handleMenu} className="p-3 transition-colors duration-300 rounded-full hover:bg-gray-50 text-primary-text"><X size={18} /></button>
                     </div>
-                ))}
+                    {SideBarData.map((data, index) => (
+                        <div key={index} className="flex flex-col w-full gap-2">
+                            <h1 className="text-xs font-bold text-gray-400">{data.Title}</h1>
+                            {data.Menu.map((item, index) => (
+                                <LinkButton href={item.href} key={index}>{item.Icon}{item.Title}</LinkButton>
+                            ))}
+                        </div>
+                    ))}
+                </div>
+                <div className="flex flex-col w-full gap-2">
+                    <h1 className="text-xs font-bold text-gray-400">SETTINGS</h1>
+                    <LinkButton href={"/Settings"} ><LogOut /> Logout</LinkButton>
+                </div>
             </div>
 
         </>
