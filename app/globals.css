@@ -15,3 +15,7 @@
     --secondary-color: #222222;
     --secondary-text: #e5e5e5;
 }
+
+::-webkit-scrollbar{
+    width: 0%;
+}
