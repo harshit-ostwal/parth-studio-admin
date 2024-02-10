@@ -15,7 +15,7 @@ export default function Header() {
 
     return (
         <>
-            <div className="sticky top-0 left-0 items-center justify-between hidden w-full px-5 py-4 shadow-sm md:flex bg-background">
+            <div className="sticky top-0 left-0 items-center justify-between hidden w-full px-5 py-4 shadow-sm lg:flex bg-background">
                 <div className="flex items-center w-full gap-2">
                     <button onClick={handleMenu} className="p-3 transition-colors duration-300 rounded-full lg:hidden hover:bg-gray-50 text-primary-text"><GanttChart size={18} /></button>
                     <form className="relative w-full max-w-lg lg:max-w-xl">
@@ -26,19 +26,20 @@ export default function Header() {
                     </form>
                 </div>
                 <div className="flex items-center gap-1">
-                    <Link href={"/"} className="p-3 transition-colors duration-300 rounded-full hover:bg-gray-50 text-primary-text"><Languages size={18} /></Link>
                     <Link href={"/Settings"} className="p-3 transition-colors duration-300 rounded-full hover:bg-gray-50 text-primary-text"><Settings size={18} /></Link>
                     <Link href={"/Profile"} className="p-3 transition-colors duration-300 rounded-full hover:bg-gray-50 text-primary-text"><UsersRound size={18} /></Link>
                 </div>
             </div>
 
-            <div className="sticky top-0 left-0 flex items-center justify-between w-full px-2 py-3 shadow-sm md:hidden bg-background">
-                <div className="flex">
+            <div className="sticky top-0 left-0 flex items-center justify-between w-full px-2 py-3 shadow-sm lg:hidden bg-background">
+                <div className="flex items-start justify-start">
                     <button onClick={handleMenu} className="p-3 transition-colors duration-300 rounded-full hover:bg-gray-50 text-primary-text"><GanttChart size={18} /></button>
                     <button className="p-3 transition-colors duration-300 rounded-full hover:bg-gray-50 text-primary-text"><Search size={18} /></button>
                 </div>
-                <div className="flex items-center">
-                    <Link href={"/"} className="p-3 transition-colors duration-300 rounded-full hover:bg-gray-50 text-primary-text"><Languages size={18} /></Link>
+                <Link href={"/"}>
+                    <img src="/Logo/psblack.png" alt="Parth Studio" width={80} />
+                </Link>
+                <div className="flex items-end justify-end">
                     <Link href={"/Settings"} className="p-3 transition-colors duration-300 rounded-full hover:bg-gray-50 text-primary-text"><Settings size={18} /></Link>
                     <Link href={"/Profile"} className="p-3 transition-colors duration-300 rounded-full hover:bg-gray-50 text-primary-text"><UsersRound size={18} /></Link>
                 </div>
