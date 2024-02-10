@@ -1,0 +1,12 @@
+import React from 'react'
+
+export default function Footer() {
+    const todayDate = new Date().getFullYear();
+    return (
+        <>
+            <div className="flex justify-center w-full py-4 bg-background-text text-background">
+                <h1>Copyright © {todayDate} Built By Harshit Ostwal</h1>
+            </div>
+        </>
+    )
+}
