@@ -6,6 +6,8 @@ import Sidebar from './Sidebar';
 import { SideBarData } from './Data/Sidebar';
 import LinkButton from './LinkButton';
 import { Separator } from "@/components/ui/separator"
+import { signOut } from 'next-auth/react';
+import Button from './Button';
 
 
 export default function Header() {
@@ -45,7 +47,7 @@ export default function Header() {
                                 <li><LinkButton href={"/Profile"} variant={"secondary"} ><User2 size={18} />Profile</LinkButton></li>
                                 <li><LinkButton href={"/Settings"} variant={"secondary"} ><Settings size={18} />Settings</LinkButton></li>
                                 <Separator />
-                                <li><LinkButton href={"/Logout"} variant={"secondary"} ><LogOut size={18} />Logout</LinkButton></li>
+                                <li><Button onClick={() => signOut()} variant={"secondary"} ><LogOut size={18} />Logout</Button></li>
                             </ul>
                         </li>
                     </ul>
@@ -78,7 +80,7 @@ export default function Header() {
                                 <li><LinkButton href={"/Profile"} variant={"secondary"} ><User2 size={18} />Profile</LinkButton></li>
                                 <li><LinkButton href={"/Settings"} variant={"secondary"} ><Settings size={18} />Settings</LinkButton></li>
                                 <Separator />
-                                <li><LinkButton href={"/Logout"} variant={"secondary"} ><LogOut size={18} />Logout</LinkButton></li>
+                                <li><Button onClick={() => signOut()} variant={"secondary"} ><LogOut size={18} />Logout</Button></li>
                             </ul>
                         </li>
                     </ul>

@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: "Gilroy";
-    src: url(/fonts/Gilroy.otf) format("opentype");
+    font-family: 'Gilroy';
+    src: url('../fonts/Gilroy.otf') format('opentype');
 }
 
 :root {
@@ -16,6 +16,6 @@
     --secondary-text: #e5e5e5;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     width: 0%;
 }

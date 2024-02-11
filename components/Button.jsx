@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 import { cva } from 'class-variance-authority';
 
 const buttonVariants = cva(
-    "transition-colors duration-200 ease-in flex gap-3 items-center font-semibold font-Gilroy",
+    "transition-colors duration-200 ease-in w-full flex gap-3 items-center font-semibold font-Gilroy",
     {
         variants: {
             variant: {

@@ -1,3 +1,4 @@
+import { Toaster } from "@/components/ui/toaster";
 import Display from "./Display";
 import { NextAuthProvider } from "./Provider";
 import "./globals.css";
@@ -24,6 +25,7 @@ export default function RootLayout({ children }) {
           initialPosition={0.1} />
         <NextAuthProvider>
           <Display children={children} />
+          <Toaster />
         </NextAuthProvider>
       </body>
     </html>
