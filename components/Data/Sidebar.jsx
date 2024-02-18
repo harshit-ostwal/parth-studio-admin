@@ -1,4 +1,4 @@
-import { Contact2, Film, Gauge, Gem, Gift, Image, Ticket, TrendingUp } from 'lucide-react'
+import { Film, Gauge, Gem, Gift, Image, Ticket, Users } from 'lucide-react'
 
 export const SideBarData = [
     {
@@ -8,7 +8,7 @@ export const SideBarData = [
             {
                 id: 1,
                 Title: "App",
-                href: "/App",
+                href: "/",
                 Icon: <Gauge />
             },
             {
@@ -17,18 +17,6 @@ export const SideBarData = [
                 href: "/Bookings",
                 Icon: <Ticket />
             },
-            {
-                id: 3,
-                Title: "Analytics",
-                href: "Analytics",
-                Icon: <TrendingUp />
-            },
-            {
-                id: 4,
-                Title: "Contact Us",
-                href: "Contact Us",
-                Icon: <Contact2 />
-            }
         ]
     },
     {
@@ -58,6 +46,12 @@ export const SideBarData = [
                 Title: "Films",
                 href: "Films",
                 Icon: <Film />
+            },
+            {
+                id: 5,
+                Title: "Users",
+                href: "Users",
+                Icon: <Users />
             }
         ]
     }

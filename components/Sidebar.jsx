@@ -1,25 +1,61 @@
-import React from 'react';
+"use client"
+import React, { useState } from 'react'
+import { Separator } from './ui/separator'
+import { GanttChart, LogOut, X } from 'lucide-react'
+import { signOut, useSession } from 'next-auth/react'
 import { SideBarData } from './Data/Sidebar';
-import LinkButton from './LinkButton';
 import Link from 'next/link';
-import { LogOut, Settings } from 'lucide-react';
 
 export default function Sidebar() {
-    return (
-        <>
-            <div className="sticky top-0 left-0 flex-col hidden w-full h-screen max-w-xs gap-10 p-5 overflow-y-auto border-r border-dashed border-secondary-text lg:flex bg-primary">
-                <Link href={"/"}>
-                    <img src="/Logo/psblack.png" alt="Parth Studio" width={80} />
+
+  const { data: session } = useSession();
+  const [menu, setMenu] = useState(false);
+
+  const handleMenu = () => {
+    setMenu(!menu);
+  }
+
+  return (
+    <>
+      <div className={`fixed p-5 md:sticky md:max-w-xs md:p-2 flex duration-1000 flex-col justify-between w-full h-full gap-10 overflow-y-auto bg-background text-background-text ${!menu ? "left-[-100%]" : "left-0"}`}>
+        <div className="flex items-center justify-between">
+          <Link className="w-auto h-auto" href={"/"}>
+            <img src="/Logo/ps.png" width={80} alt="Parth Studio" />
+          </Link>
+          <button onClick={handleMenu} className="flex md:hidden"><X /></button>
+        </div>
+        <div className="h-full space-y-5">
+          {SideBarData.map((data, index) => (
+            <div key={index}>
+              <h6 className="mb-5 text-xs font-semibold tracking-tighter text-secondary">{data.Title}</h6>
+              {data.Menu.map((menu, index) => (
+                <Link href={menu.href} onClick={() => setMenu(false)} key={index} className="flex items-center gap-5 p-4 text-sm hover:bg-hover rounded-xl text-secondary-text">
+                  <span>{menu.Icon}</span>
+                  <span>{menu.Title}</span>
                 </Link>
-                {SideBarData.map((data, index) => (
-                    <div key={index} className="flex flex-col w-full gap-2">
-                        <h1 className="text-xs font-bold text-gray-400">{data.Title}</h1>
-                        {data.Menu.map((item, index) => (
-                            <LinkButton href={item.href} key={index}>{item.Icon}{item.Title}</LinkButton>
-                        ))}
-                    </div>
-                ))}
+              ))}
             </div>
-        </>
-    );
+          ))}
+        </div>
+        <div className="flex flex-col gap-5">
+          <button onClick={() => signOut()} className="flex items-center gap-5 p-4 text-sm hover:bg-hover rounded-xl text-secondary-text"><LogOut />Logout</button>
+          <Separator />
+          <div className="flex gap-3">
+            <img src="/Avatar.jpg" alt={session?.user?.name} className="rounded-full" width={60} />
+            <div className="flex flex-col items-start justify-center overflow-hidden">
+              <h1 className="font-semibold capitalize text-secondary-text">{session?.user?.name}</h1>
+              <p className="text-xs lowercase text-secondary">{session?.user?.email}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex items-center justify-between gap-5 px-5 py-4 md:hidden">
+        <Link className="w-auto h-auto" href={"/"}>
+          <img src="/Logo/ps.png" width={80} alt="Parth Studio" />
+        </Link>
+        <button onClick={handleMenu} ><GanttChart /></button>
+      </div >
+    </>
+  )
 }

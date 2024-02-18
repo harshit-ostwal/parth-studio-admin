@@ -1,8 +1,23 @@
-import { Toaster } from "@/components/ui/toaster";
 import Display from "./Display";
 import { NextAuthProvider } from "./Provider";
 import "./globals.css";
 import NextTopLoader from "nextjs-toploader";
+import { Nunito, Noto_Sans } from "next/font/google"
+import { Toaster } from "@/components/ui/toaster";
+
+const nunito = Nunito({
+  weight: ["200", "300", "400", "500", "600", "700", "800", "900", "1000"],
+  variable: "--nunito",
+  preload: true,
+  subsets: ["latin"]
+});
+
+const noto_sans = Noto_Sans({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--noto_sans",
+  preload: true,
+  subsets: ["latin"]
+});
 
 export const metadata = {
   title: "Parth Studio - Admin Dashboard",
@@ -12,7 +27,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="font-Gilroy">
+      <body className={`${nunito.variable} ${noto_sans.variable} font-Nunito bg-background text-background-text`}>
         <NextTopLoader
           color={"red"}
           zIndex={1600}
@@ -25,8 +40,8 @@ export default function RootLayout({ children }) {
           initialPosition={0.1} />
         <NextAuthProvider>
           <Display children={children} />
-          <Toaster />
         </NextAuthProvider>
+        <Toaster />
       </body>
     </html>
   );

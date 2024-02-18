@@ -2,20 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-    font-family: 'Gilroy';
-    src: url('../fonts/Gilroy.otf') format('opentype');
-}
 
 :root {
-    --background-color: #fff;
-    --background-text: #222222;
-    --primary-color: #fff;
-    --primary-text: #737373;
-    --secondary-color: #222222;
+    --background-color: #222222;
+    --background-text: #fff;
+    --hover-color: #404040;
+    --hover-text: #fafafa;
+    --secondary-color: #737373;
     --secondary-text: #e5e5e5;
-}
-
-::-webkit-scrollbar {
-    width: 0%;
 }

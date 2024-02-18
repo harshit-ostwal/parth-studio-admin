@@ -3,13 +3,11 @@ import { cn } from '@/lib/utils';
 import { cva } from 'class-variance-authority';
 
 const buttonVariants = cva(
-    "transition-colors duration-200 ease-in w-full flex gap-3 items-center font-semibold font-Gilroy",
+    "transition-colors duration-200 ease-in flex gap-3 items-center font-semibold font-Gilroy",
     {
         variants: {
             variant: {
-                default: "bg-primary text-primary-text hover:bg-secondary text-sm focus:bg-secondary-text focus:text-secondary hover:text-secondary-text",
-                primary: "bg-secondary text-primary hover:bg-primary text-sm focus:bg-secondary focus:text-secondary-text hover:text-primary-text hover:border border-secondary",
-                secondary: "bg-secondary text-primary hover:bg-primary text-sm focus:bg-primary-text focus:text-secondary hover:text-primary-text",
+                default: "bg-background text-background-text hover:bg-secondary-text hover:text-background text-sm focus:bg-background focus:text-background-text",
             },
             size: {
                 default: "rounded-md px-4 py-3",

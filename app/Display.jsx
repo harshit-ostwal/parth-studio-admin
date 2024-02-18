@@ -1,7 +1,6 @@
 "use client"
-import Footer from '@/components/Footer'
-import Header from '@/components/Header'
-import Sidebar from '@/components/Sidebar'
+import Footer from '@/components/Footer';
+import Sidebar from '@/components/Sidebar';
 import { usePathname } from 'next/navigation'
 import React from 'react'
 
@@ -11,16 +10,12 @@ export default function Display({ children }) {
     return (
         <>
             {path ? (children) : (
-                <div className="flex">
+                <div className="flex flex-col h-screen gap-2 md:p-5 md:flex-row">
                     <Sidebar />
-                    <div className="flex flex-col w-full h-full">
-                        <Header />
-                        <div className="p-5">
-                            {children}
-                        </div>
-                        <Footer />
+                    <div className="w-full h-full p-5 bg-background-text text-background rounded-3xl">
+                        {children}
                     </div>
-                </div >
+                </div>
             )}
         </>
 

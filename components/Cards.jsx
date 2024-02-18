@@ -9,13 +9,17 @@ export default function Cards() {
     const [status, setStatus] = useState("false");
 
     useEffect(() => {
-        function userCount() {
-            CardsData.map(async (data) => {
-                const res = await axios.get(`/api/${data.endPoint}`);
-                setCount(res.data.userCount);
-            })
+        try {
+            function userCount() {
+                CardsData.map(async (data) => {
+                    const res = await axios.get(`/api/${data.endPoint}`);
+                    setCount(res.data.userCount);
+                })
+            }
+            userCount();
+        } catch (error) {
+
         }
-        userCount();
     }, []);
 
     if (count != 0) {
@@ -29,14 +33,14 @@ export default function Cards() {
             {
                 CardsData.map((data, index) => (
                     <div key={index} className="w-full max-w-sm p-5 space-y-2 bg-gray-100 rounded-lg">
-                        <h1 className="font-bold text-primary-text">{data.title}</h1>
+                        <h1 className="font-GilroySemibold text-primary-text">{data.title}</h1>
                         {!status ?
                             <>
-                                <p className="flex items-center gap-2 text-red-600"><ChevronsDown />-{count / count * 100}%</p>
+                                <p className="flex items-center gap-2 text-red-600 font-GilroyMedium"><ChevronsDown />-{count / count * 100}%</p>
                             </> : <>
-                                <p className="flex items-center gap-2 text-green-600"><ChevronsUp />+{count / count * 100}%</p>
+                                <p className="flex items-center gap-2 text-green-600 font-GilroyMedium"><ChevronsUp />+{count / count * 100}%</p>
                             </>}
-                        <p className="text-4xl font-semibold text-secondary">{count}</p>
+                        <p className="text-4xl font-GilroyBold text-secondary">{count}</p>
                     </div>
                 ))
             }

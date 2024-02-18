@@ -17,31 +17,23 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        Nunito: "var(--nunito)",
+        NotoSans: "var(--noto_sans)",
+      },
       colors: {
         background: {
           DEFAULT: 'var(--background-color)',
           text: 'var(--background-text)'
         },
-        primary: {
-          DEFAULT: 'var(--primary-color)',
-          text: 'var(--primary-text)'
+        hover: {
+          DEFAULT: 'var(--hover-color)',
+          text: 'var(--hover-text)'
         },
         secondary: {
           DEFAULT: 'var(--secondary-color)',
           text: 'var(--secondary-text)'
         },
-        destructive: {
-          DEFAULT: 'var(--destructive-color)',
-          text: 'var(--destructive-text)'
-        },
-        accent: {
-          DEFAULT: 'var(--accent-color)',
-          text: 'var(--accent-text)'
-        },
-        card: 'var(--card-color)',
-      },
-      fontFamily: {
-        Gilroy: ['Gilroy', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {

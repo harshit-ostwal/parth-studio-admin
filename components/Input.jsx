@@ -7,7 +7,7 @@ const Input = ({ req, type, placeholder, className, updateValue, value, disabled
       disabled={disabled}
       value={value}
       onChange={updateValue}
-      className={`py-3 p-2 font-Gilroy rounded-[10px] hover:border-primary-text focus:outline-none border active:border-primary-text focus:border-secondary ${className}`}
+      className={`py-3 p-2 rounded-[10px] hover:border-background border focus:border-background active:border-background outline-none duration-300 ${className}`}
     />
   );
 };
