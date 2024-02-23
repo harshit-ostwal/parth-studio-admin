@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { signIn } from 'next-auth/react'
 import { Loader2Icon } from 'lucide-react'
@@ -14,9 +14,51 @@ export default function page() {
     const [password, setPassword] = useState("");
     const { toast } = useToast()
 
+    const [data, setData] = useState([]);
+    const [Loading, setLoading] = useState(true);
+
     const [isLoading, setIsLoading] = useState(false);
 
     const router = useRouter();
+
+    const updateStatus = async () => {
+        setLoading(true);
+        try {
+            await axios.get("/api/User").then(res => {
+                setData(res.data.fetchUser);
+                setLoading(false);
+                toast({
+                    variant: "success",
+                    title: "SS SOFTWARE",
+                    description: "User Data Deleted Successfully!",
+                })
+            })
+        } catch (error) {
+            toast({
+                variant: "destructive",
+                title: "SS SOFTWARE",
+                description: "An Error Occurred While Deleting User Data?",
+            })
+        }
+    }
+
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                await axios.get("/api/User").then(res => {
+                    setData(res.data.fetchUser);
+                    setLoading(false);
+                })
+            } catch (error) {
+                toast({
+                    variant: "destructive",
+                    title: "SS SOFTWARE",
+                    description: "An Error Occurred While Loading User Data?",
+                })
+            }
+        }
+        fetchData()
+    }, [])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
