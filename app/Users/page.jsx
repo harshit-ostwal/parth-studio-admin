@@ -31,7 +31,7 @@ export default function page() {
 
     return (
         <>
-            <div className="flex flex-col w-full h-full items-center justify-center gap-10 overflow-y-auto">
+            <div className="w-full h-full py-10 space-y-10 overflow-y-auto md:px-5">
                 <Creation fetchData={fetchData} />
                 <UserTable data={data} fetchData={fetchData} loading={loading} />
             </div>

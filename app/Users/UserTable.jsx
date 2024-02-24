@@ -6,10 +6,9 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
-import { Edit3 } from 'lucide-react';
-import Link from 'next/link';
 import Remove from './Remove';
 import { Skeleton } from '@/components/ui/skeleton';
+import Updation from './Updation';
 
 export default function UserTable({ data, fetchData, loading }) {
 
@@ -42,7 +41,7 @@ export default function UserTable({ data, fetchData, loading }) {
                                     <TableCell>{user.password}</TableCell>
                                     <TableCell className="flex gap-5">
                                         <Remove id={user.id} fetchData={fetchData} />
-                                        <Link href={`Users/${user.id}`}><Edit3 size={18} /></Link>
+                                        <Updation id={user.id} fetchData={fetchData} />
                                     </TableCell>
                                 </TableRow>
                             ))}

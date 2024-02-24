@@ -4,7 +4,6 @@ import Input from '@/components/Input';
 import { useToast } from '@/components/ui/use-toast';
 import axios from 'axios';
 import { Loader2Icon } from 'lucide-react';
-import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 
 export default function Creation({ fetchData }) {
@@ -21,11 +20,11 @@ export default function Creation({ fetchData }) {
         setIsLoading(true);
 
         try {
-            const userExists = axios.post("/api/UserExists/", {
+            const userExists = await axios.post("/api/UserExists/", {
                 email
             });
 
-            const { fetchUser } = (await userExists).data
+            const { fetchUser } = userExists.data;
 
             if (fetchUser) {
                 setIsLoading(false);
@@ -33,31 +32,31 @@ export default function Creation({ fetchData }) {
                     variant: "destructive",
                     title: "SS SOFTWARE",
                     description: "An User Already Exist?",
-                })
+                });
                 return;
             }
 
-            const res = axios.post("/api/User/", {
+            const res = await axios.post("/api/User/", {
                 name,
                 email,
                 password,
-            })
+            });
 
             if (res) {
                 toast({
                     variant: "success",
                     title: "SS SOFTWARE",
-                    description: "User SignUp Successfull!",
-                })
+                    description: "User SignUp Successful!",
+                });
                 const form = e.target;
                 form.reset();
-            }
-            else {
+                fetchData();
+            } else {
                 toast({
                     variant: "destructive",
                     title: "SS SOFTWARE",
                     description: "An Error Occurred While SignUp?",
-                })
+                });
                 const form = e.target;
                 form.reset();
             }
@@ -67,13 +66,13 @@ export default function Creation({ fetchData }) {
                 variant: "destructive",
                 title: "SS SOFTWARE",
                 description: "User SignUp Failed?",
-            })
+            });
             const form = e.target;
             form.reset();
             setIsLoading(false);
         }
-        fetchData();
-    }
+    };
+
 
     return (
         <>

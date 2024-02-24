@@ -18,7 +18,7 @@ export default function Sidebar() {
 
   return (
     <>
-      <div className={`fixed top-0 left-0 p-5 md:sticky md:max-w-xs md:p-2 flex duration-1000 flex-col justify-between w-full h-full gap-10 overflow-y-auto bg-background text-background-text ${!menu ? "left-[-100%]" : "left-0"}`}>
+      <div className={`fixed top-0 left-0 p-5 md:sticky md:max-w-xs md:p-2 flex duration-1000 z-[800] flex-col justify-between w-full h-full gap-10 overflow-y-auto bg-background text-background-text ${!menu ? "left-[-100%]" : "left-0"}`}>
         <div className="flex flex-col justify-between gap-10">
           <div className="flex items-center justify-between">
             <Link className="w-auto h-auto" href={"/"} onClick={() => setMenu(false)}>
@@ -54,7 +54,7 @@ export default function Sidebar() {
               </> :
               <>
                 <Skeleton className="w-[60px] h-[60px] rounded-full" />
-                <div className="flex flex-col gap-2 items-center justify-center">
+                <div className="flex flex-col items-center justify-center gap-2">
                   <Skeleton className="px-20 py-2 rounded-md" />
                   <Skeleton className="px-20 py-2 rounded-md" />
                 </div>
