@@ -14,6 +14,7 @@ import {
 import { Trash2 } from 'lucide-react'
 import { useToast } from '@/components/ui/use-toast';
 import axios from 'axios';
+import { signOut } from 'next-auth/react';
 
 export default function Remove({ id, fetchData }) {
 
@@ -29,6 +30,7 @@ export default function Remove({ id, fetchData }) {
                     description: "User Deleted Successfully!",
                 });
                 fetchData();
+                signOut();
             }
         } catch (error) {
             toast({
