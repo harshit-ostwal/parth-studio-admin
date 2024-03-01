@@ -1,17 +1,17 @@
-import bcrypt from "bcryptjs";
 import prisma from "@/lib/prismadb";
 import { NextResponse } from "next/server";
 
 export const PUT = async (req, { params }) => {
     try {
         const { id } = params;
-        const { updatedUrl: imageUrl } = await req.json();
+        const { updatedUrl: imageUrl, updatedPublicId: imagePublicId } = await req.json();
         await prisma.gallery.update({
             where: {
                 id: id
             },
             data: {
                 imageUrl: imageUrl,
+                imagePublicId: imagePublicId
             },
         });
         return NextResponse.json({ message: "Gallery Image Updated!" }, { status: 201 });

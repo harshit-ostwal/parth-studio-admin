@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar{
+    width: 0%;
+}
 
 :root {
     --background-color: #222222;

@@ -3,10 +3,11 @@ import { NextResponse } from "next/server";
 
 export const POST = async (req, res) => {
     try {
-        const { imageUrl } = await req.json();
+        const { imageUrl, imagePublicId } = await req.json();
         await prisma.gallery.create({
             data: {
                 imageUrl,
+                imagePublicId
             },
         });
         return NextResponse.json({ message: "Gallery Image Created!" }, { status: 201 });

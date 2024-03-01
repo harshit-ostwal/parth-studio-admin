@@ -5,12 +5,11 @@ import axios from 'axios';
 import { Loader2Icon, UploadCloud } from 'lucide-react'
 import React, { useState } from 'react'
 
-export default function Creation() {
+export default function Creation({ fetchData }) {
 
     const { toast } = useToast();
     const [isloading, setIsLoading] = useState(false);
     const [image, setImage] = useState("");
-    const [imageUrl, setImageUrl] = useState("");
     const maxFileSize = 10000;
 
     const checkFileSize = () => {
@@ -38,19 +37,22 @@ export default function Creation() {
             formData.append('file', image);
             formData.append('upload_preset', process.env.NEXT_PUBLIC_GALLERY_PRESET_NAME);
 
-            await axios.post(`https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload`, formData).then(
-                (res) => {
-                    setImageUrl(res.data.secure_url);
-                })
+            const res = await axios.post(`https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload`, formData);
 
-            await axios.post(`/api/Gallery`, { imageUrl }).then(() => {
-                toast({
-                    variant: "success",
-                    title: "SS SOFTWARE",
-                    description: "Gallery Image Uploaded Successfully",
-                });
-                setIsLoading(false);
-            })
+            await axios.post(`/api/Gallery`, {
+                imageUrl: res.data.secure_url,
+                imagePublicId: res.data.public_id
+            });
+
+            toast({
+                variant: "success",
+                title: "SS SOFTWARE",
+                description: "Gallery Image Uploaded Successfully",
+            });
+
+            setIsLoading(false);
+            fetchData();
+
         } catch (error) {
             toast({
                 variant: "destructive",
@@ -65,7 +67,7 @@ export default function Creation() {
         <>
             <div className="flex flex-col gap-5">
                 <h1 className="text-xl font-bold">Gallery Image Uploading</h1>
-                <div className="flex items-center gap-5">
+                <div className="flex flex-col items-center gap-5 text-center lg:flex-row">
                     <label className="flex flex-col items-center justify-center gap-3 p-10 border-2 border-dashed rounded-md cursor-pointer border-neutral-200">
                         <UploadCloud size={32} color='blue' />
                         <div>

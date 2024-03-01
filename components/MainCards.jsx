@@ -4,7 +4,7 @@ import { ChevronsDown, ChevronsUp } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { CardsData } from './Data/Cards';
 
-export default function Cards() {
+export default function MainCards() {
     const [count, setCount] = useState(0);
     const [status, setStatus] = useState("false");
 
