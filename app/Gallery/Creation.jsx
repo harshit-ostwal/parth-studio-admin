@@ -30,6 +30,17 @@ export default function Creation({ fetchData }) {
     const handleImage = async () => {
         setIsLoading(true);
 
+        if (image == "") {
+            toast({
+                variant: "destructive",
+                title: "SS SOFTWARE",
+                description: "Please Select Gallery Image?",
+            });
+            setIsLoading(false);
+            return;
+        }
+
+
         if (!checkFileSize()) return;
 
         try {

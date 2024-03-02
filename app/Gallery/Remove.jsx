@@ -15,13 +15,15 @@ import { Trash2 } from 'lucide-react'
 import { useToast } from '@/components/ui/use-toast';
 import axios from 'axios';
 
-export default function Remove({ id, fetchData }) {
+export default function Remove({ id, fetchData, imagePublicId }) {
 
   const { toast } = useToast();
 
   const handleDelete = async (id) => {
     try {
-      const res = await axios.delete(`/api/Gallery/${id}`);
+      const res = await axios.post(`/api/Gallery/${id}`, {
+        imagePublicId
+      });
       if (res) {
         toast({
           variant: "success",
