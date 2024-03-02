@@ -1,17 +1,18 @@
+import cloudinary from "@/app/cloudinary";
 import prisma from "@/lib/prismadb";
 import { NextResponse } from "next/server";
 
 export const PUT = async (req, { params }) => {
     try {
         const { id } = params;
-        const { updatedUrl: imageUrl, updatedPublicId: imagePublicId } = await req.json();
+        const { updatedUrl: image } = await req.json();
+        await cloudinary.v2.api.update(image)
         await prisma.gallery.update({
             where: {
                 id: id
             },
             data: {
-                imageUrl: imageUrl,
-                imagePublicId: imagePublicId
+                imageUrl: image,
             },
         });
         return NextResponse.json({ message: "Gallery Image Updated!" }, { status: 201 });
@@ -34,9 +35,11 @@ export const GET = async (req, { params }) => {
     }
 }
 
-export const DELETE = async (req, { params }) => {
+export const POST = async (req, { params }) => {
     try {
         const { id } = params;
+        const { imagePublicId } = await req.json();
+        await cloudinary.v2.api.delete_resources(imagePublicId);
         await prisma.gallery.delete({
             where: {
                 id: id
